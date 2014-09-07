@@ -1,7 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+phalanx:
+  name: Phalanx
 
-one:
-  name: MyString
-
-two:
-  name: MyString
+mannite:
+  name: Mannite
