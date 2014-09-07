@@ -18,7 +18,8 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
 # Build JSON APIs with ease.
-gem 'active_model_serializers'
+gem 'jbuilder'
+# gem 'active_model_serializers'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
