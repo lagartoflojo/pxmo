@@ -7,3 +7,8 @@ pending_task:
   description: Pending task
   completed_on: null
   team: phalanx
+
+mannite_task:
+  description: Task assigned to Mannite
+  completed_on: null
+  team: mannite
