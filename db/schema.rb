@@ -14,12 +14,14 @@
 ActiveRecord::Schema.define(version: 20140908230416) do
 
   create_table "mutants", force: true do |t|
-    t.string   "nickname"
-    t.string   "real_name"
+    t.string   "nickname",   null: false
+    t.string   "real_name",  null: false
     t.string   "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "mutants", ["nickname"], name: "index_mutants_on_nickname"
 
   create_table "tasks", force: true do |t|
     t.text     "description"
@@ -32,9 +34,11 @@ ActiveRecord::Schema.define(version: 20140908230416) do
   add_index "tasks", ["team_id"], name: "index_tasks_on_team_id"
 
   create_table "teams", force: true do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "teams", ["name"], name: "index_teams_on_name"
 
 end

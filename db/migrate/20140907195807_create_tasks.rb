@@ -1,9 +1,9 @@
 class CreateTasks < ActiveRecord::Migration
   def change
     create_table :tasks do |t|
-      t.text :description
+      t.text :description, null: false
       t.datetime :completed_on
-      t.references :team, index: true
+      t.references :team, index: true, null: false
 
       t.timestamps null: false
     end
