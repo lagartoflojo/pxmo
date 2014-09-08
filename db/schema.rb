@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907195807) do
+ActiveRecord::Schema.define(version: 20140908230416) do
+
+  create_table "mutants", force: true do |t|
+    t.string   "nickname"
+    t.string   "real_name"
+    t.string   "photo_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: true do |t|
     t.text     "description"

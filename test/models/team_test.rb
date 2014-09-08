@@ -17,6 +17,7 @@ class TeamTest < ActiveSupport::TestCase
     team1 = teams(:phalanx)
     team2 = Team.new name: team1.name
     refute team2.valid?, 'Team should not be valid'
+    assert_includes team2.errors[:name], 'has already been taken'
   end
 
 end

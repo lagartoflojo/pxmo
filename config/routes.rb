@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  resources :mutants
+
   resources :teams, only: [:index, :create] do
     resources :tasks, only: [:index, :create]
   end
+
   root 'dashboard#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
