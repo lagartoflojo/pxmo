@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.1.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: [:test, :development]
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0.beta1'
 # Use Uglifier as compressor for JavaScript assets
@@ -30,11 +32,14 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Rails Html Sanitizer for HTML sanitization
 gem 'rails-html-sanitizer', '~> 1.0'
 
-# Use Puma as the app server
-gem 'puma'
+# Use Unicorn as the app server
+gem 'unicorn'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
 
 # Bower assets
 # gem 'rails-assets-holderjs'
