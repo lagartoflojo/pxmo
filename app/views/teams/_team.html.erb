@@ -1,12 +1,22 @@
 <div class="team placeholder">
 
-  <h3 class="team-name"><%= team.name %></h3>
+  <h3 class="team-name">
+    <%= team.name %>
+    <a href="#" style="float: right" class="new-mutant-link" title="Add new mutant"
+      data-toggle="tooltip" data-placement="bottom">
+      <span class="glyphicon glyphicon-plus"></span>
+    </a>
+  </h3>
   <div class="team-members">
+    <%= form_for [team, Mutant.new], remote: true, 'data-type' => 'html',
+          html: { id: dom_id(team)+'_new_mutant_form', style: 'display: none' } do |f| %>
+      <%= f.text_field :name, placeholder: 'New mutant name', class: 'new-mutant-input',
+            'data-toggle' => 'tooltip', 'data-trigger' => 'focus', 'data-placement' => 'bottom',
+            title: 'Press [enter] to add mutant' %>
+    <% end %>
+
     <% team.mutants.each do |mutant| %>
-      <div class="team-member" title="<%= mutant.name %>">
-        <img data-src="holder.js/50x50/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-        <div class="team-member-name"><%= mutant.name %></div>
-      </div>
+      <%= render mutant %>
     <% end -%>
   </div> <!-- team members -->
 
@@ -21,9 +31,9 @@
             html: { id: dom_id(team) + '_new_task_form' } do |f| %>
         <input type="checkbox" disabled="disabled">
         <label>
-          <%= f.text_field :description, placeholder: "Add new task", class: "new-task-input",
-                'data-toggle' => "tooltip", 'data-trigger' => "focus", 'data-placement' => "bottom",
-                title: "Press [enter] to add task" %>
+          <%= f.text_field :description, placeholder: 'Add new task', class: 'new-task-input',
+                'data-toggle' => 'tooltip', 'data-trigger' => 'focus', 'data-placement' => 'bottom',
+                title: 'Press [enter] to add task' %>
         </label>
       <% end %>
     </div>

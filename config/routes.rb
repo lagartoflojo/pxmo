@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :mutants
-
   resources :teams, only: [:index, :create] do
     resources :tasks, only: [:index, :create]
+    resources :mutants, only: [:create]
   end
 
   resources :tasks, only: nil do

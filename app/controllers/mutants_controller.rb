@@ -1,12 +1,13 @@
 class MutantsController < ApplicationController
+  before_action :set_team
 
   def create
-    @mutant = Mutant.new mutant_params
+    @mutant = @team.mutants.build mutant_params
     respond_to do |format|
       if @mutant.save
-        format.json { render json: @mutant, status: :created }
+        format.html { render @mutant, status: :created }
       else
-        format.json { render json: @mutant.errors, status: :unprocessable_entity}
+        format.html { render nothing: true, status: :unprocessable_entity}
       end
     end
   end
@@ -14,6 +15,10 @@ class MutantsController < ApplicationController
   private
   def mutant_params
     params.require(:mutant).permit(:name, :photo_url)
+  end
+
+  def set_team
+    @team = Team.find(params[:team_id])
   end
 
 end
