@@ -1,0 +1,30 @@
+<div class="team placeholder">
+
+  <h3 class="team-name"><%= team.name %></h3>
+  <div class="team-members">
+    <% team.mutants.each do |mutant| %>
+      <div class="team-member" title="<%= mutant.name %>">
+        <img data-src="holder.js/50x50/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+        <div class="team-member-name"><%= mutant.name %></div>
+      </div>
+    <% end -%>
+  </div> <!-- team members -->
+
+  <h4>Tasks</h4>
+  <div class="team-tasks">
+    <% team.tasks.each do |task| %>
+      <div class="pxmo-checkbox-radio">
+        <input type="checkbox" id="<%= dom_id task %>">
+        <label for="<%= dom_id task %>"><%= task.description %></label>
+      </div>
+    <% end -%>
+
+    <div class="pxmo-checkbox-radio pxmo-checkbox-radio-editable">
+      <input type="checkbox" value="" id="new_task_<%= dom_id team %>">
+      <label for="new_task_<%= dom_id team %>">
+        <input type="text" placeholder="Add new task">
+      </label>
+    </div>
+  </div> <!-- team tasks -->
+
+</div> <!-- team -->
