@@ -11,3 +11,13 @@ $ ->
     $form.find('.new-task-input').val('')
     $teamTasks = $form.parent().parent()
     $(html).insertAfter($teamTasks.find('.team-task:last'))
+
+  $('[data-task-completion-url]').on 'change' , (evt) ->
+    $checkbox = $(evt.target)
+    url = $checkbox.data('task-completion-url')
+    checked = $checkbox.is(':checked')
+
+    if checked
+      $.ajax url, type: 'post'
+    else
+      $.ajax url, type: 'delete'

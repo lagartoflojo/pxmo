@@ -1,4 +1,5 @@
 <div class="pxmo-checkbox-radio team-task">
-  <input type="checkbox" id="<%= dom_id task %>">
+  <%= check_box_tag dom_id(task), task.id, task.complete?,
+    'data-task-completion-url' => task_completion_url(task) %>
   <label for="<%= dom_id task %>"><%= task.description %></label>
 </div>
