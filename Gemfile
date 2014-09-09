@@ -37,7 +37,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 # Bower assets
-gem 'rails-assets-holderjs'
+# gem 'rails-assets-holderjs'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

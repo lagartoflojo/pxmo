@@ -1,4 +1,4 @@
 <div class="team-member" title="<%= mutant.name %>">
-  <img data-src="holder.js/50x50/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
+  <img src="<%= mutant.photo_url || image_url('silhouette.png') %>" width="50" class="img-responsive team-member-photo">
   <div class="team-member-name"><%= mutant.name %></div>
 </div>
