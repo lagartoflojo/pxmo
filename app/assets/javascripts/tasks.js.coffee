@@ -4,7 +4,7 @@ $ ->
   $('.new_task').on 'ajax:before', (evt) ->
     $form = $(evt.target)
     desc = $form.find('.new-task-input').val()
-    return false if !desc.length
+    return false if !desc.trim().length
 
   $('.new_task').on 'ajax:success', (xhr, html, status) ->
     $form = $(xhr.target)

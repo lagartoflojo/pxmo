@@ -9,9 +9,9 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     respond_to do |format|
       if @team.save
-        format.json { render json: @team, status: :created, location: nil }
+        format.html { render @team, status: :created }
       else
-        format.json { render json: @team.errors, status: :unprocessable_entity }
+        format.html { render nothing: true, status: :unprocessable_entity }
       end
     end
   end

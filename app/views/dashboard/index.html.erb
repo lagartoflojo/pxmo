@@ -29,7 +29,11 @@
       <% end -%>
 
       <div class="team add-team">
-        <a href="#add-team">Form new team</a>
+        <%= form_for Team.new, remote: true, 'data-type' => 'html' do |f| %>
+          <%= f.text_field :name, placeholder: "Form new team", class: "new-team-input",
+                'data-toggle' => "tooltip", 'data-trigger' => "focus", 'data-placement' => "bottom",
+                title: "Press [enter] to create team" %>
+        <% end -%>
       </div>
 
     </div> <!-- team-board -->

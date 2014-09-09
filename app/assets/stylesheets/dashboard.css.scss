@@ -174,17 +174,29 @@ body {
 
 .add-team {
   border-width: 0;
-  a {
-    border-radius: 3px;
+  background-color: #d3d3d3;
+  border-radius: 3px;
+
+  .new-team-input {
+    border: 0;
     display: block;
     font-size: 1.3em;
-    padding: 5px;
-    background-color: #d3d3d3;
+    margin: 3px;
+    padding: 2px;
     color: #adadad;
+    background-color: transparent;
+    width: 97%;
+
+    &:focus, &:focus:hover {
+      background-color: white;
+      color: #333333;
+    }
   }
-  a:hover {
-    text-decoration: none;
+
+  &:hover {
     background-color: lighten(#d3d3d3, 10%);
-    color: lighten(#adadad, 10%);;
+    .new-team-input {
+      color: lighten(#adadad, 10%);
+    }
   }
 }
