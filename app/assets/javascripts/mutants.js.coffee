@@ -2,6 +2,10 @@ $ ->
   $('.new-mutant-input').tooltip()
   $('.new-mutant-link').tooltip()
 
+  $('.new-mutant-input').blur (evt) ->
+    $form = $(this).parent()
+    $form.fadeOut()
+
   $('.new-mutant-link').click (evt) ->
     evt.preventDefault()
     $link = $(this)
