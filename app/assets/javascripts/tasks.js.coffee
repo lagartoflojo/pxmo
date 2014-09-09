@@ -1,18 +1,16 @@
 $ ->
-  $('.new-task-input').tooltip()
-
-  $('.new_task').on 'ajax:before', (evt) ->
+  $('.team-board').on 'ajax:before', '.new_task', (evt) ->
     $form = $(evt.target)
     desc = $form.find('.new-task-input').val()
     return false if !desc.trim().length
 
-  $('.new_task').on 'ajax:success', (xhr, html, status) ->
+  $('.team-board').on 'ajax:success', '.new_task', (xhr, html, status) ->
     $form = $(xhr.target)
     $form.find('.new-task-input').val('')
     $teamTasks = $form.parent().parent()
-    $(html).insertAfter($teamTasks.find('.team-task:last'))
+    $(html).insertBefore($teamTasks.find('.pxmo-checkbox-radio-editable'))
 
-  $('[data-task-completion-url]').on 'change' , (evt) ->
+  $('.team-board').on 'change', '[data-task-completion-url]', (evt) ->
     $checkbox = $(evt.target)
     url = $checkbox.data('task-completion-url')
     checked = $checkbox.is(':checked')

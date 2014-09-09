@@ -1,12 +1,9 @@
 $ ->
-  $('.new-mutant-input').tooltip()
-  $('.new-mutant-link').tooltip()
-
-  $('.new-mutant-input').blur (evt) ->
+  $('.team-board').on 'blur', '.new-mutant-input', (evt) ->
     $form = $(this).parent()
     $form.fadeOut()
 
-  $('.new-mutant-link').click (evt) ->
+  $('.team-board').on 'click', '.new-mutant-link', (evt) ->
     evt.preventDefault()
     $link = $(this)
     $team = $link.parent().parent()
@@ -14,7 +11,7 @@ $ ->
     $form.fadeToggle()
     $team.find('.new-mutant-input').focus()
 
-  $('.new_mutant').on 'ajax:success', (xhr, html, status) ->
+  $('.team-board').on 'ajax:success', '.new_mutant', (xhr, html, status) ->
     $form = $(this)
     $form.fadeOut()
     $form.find('.new-mutant-input').val('')

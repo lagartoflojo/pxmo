@@ -1,6 +1,4 @@
 $ ->
-  $('.new-team-input').tooltip()
-
   $('.new_team').on 'ajax:before', (evt) ->
     $form = $(evt.target)
     desc = $form.find('.new-team-input').val()
