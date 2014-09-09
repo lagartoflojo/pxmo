@@ -1,0 +1,2 @@
+$ ->
+  $('.new-task-input').tooltip()

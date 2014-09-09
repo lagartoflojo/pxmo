@@ -22,7 +22,8 @@
     <div class="pxmo-checkbox-radio pxmo-checkbox-radio-editable">
       <input type="checkbox" value="" id="new_task_<%= dom_id team %>">
       <label for="new_task_<%= dom_id team %>">
-        <input type="text" placeholder="Add new task">
+        <input type="text" placeholder="Add new task" class="new-task-input"
+          data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="Press [enter] to add task">
       </label>
     </div>
   </div> <!-- team tasks -->
