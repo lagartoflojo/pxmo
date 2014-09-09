@@ -28,4 +28,21 @@ class TaskTest < ActiveSupport::TestCase
       'Task.pending should not include completed task'
   end
 
+  test 'Task#complete? should return whether task is complete' do
+    assert tasks(:completed_task).complete?, 'Completed task should return true'
+    refute tasks(:pending_task).complete?, 'Pending task should return false'
+  end
+
+  test 'Task#complete! should mark task as complete' do
+    task = tasks(:pending_task)
+    task.complete!
+    assert task.complete?, 'Task should be complete'
+  end
+
+  test 'Task#pending! should mark task as pending' do
+    task = tasks(:completed_task)
+    task.pending!
+    refute task.complete?, 'Task should be pending'
+  end
+
 end

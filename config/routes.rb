@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :create]
   end
 
+  resources :tasks, only: nil do
+    resource :completion, only: [:create, :destroy]
+  end
+
   root 'dashboard#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
