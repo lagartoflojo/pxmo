@@ -13,7 +13,7 @@ class MutantsController < ApplicationController
 
   private
   def mutant_params
-    params.require(:mutant).permit(:nickname, :real_name, :photo_url)
+    params.require(:mutant).permit(:name, :photo_url)
   end
 
 end

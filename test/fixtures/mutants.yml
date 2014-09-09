@@ -1,21 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 cyclops:
-  nickname: Cyclops
-  real_name: Scott Summers
+  name: Cyclops
   photo_url: cylops.gif
 
 angel:
-  nickname: Angel
-  real_name: Warren Kenneth Worthington III
+  name: Angel
   photo_url: angel.png
 
 mimic:
-  nickname: mimic
-  real_name: Calvin Montgomery Rankin
+  name: mimic
   photo_url: mimic.jpg
-
-invalid:
-  nickname:
-  real_name:
-  photo_url:
