@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908230416) do
+ActiveRecord::Schema.define(version: 20140909000434) do
 
   create_table "mutants", force: true do |t|
     t.string   "nickname",   null: false
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20140908230416) do
     t.string   "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "team_id"
   end
 
   add_index "mutants", ["nickname"], name: "index_mutants_on_nickname"
+  add_index "mutants", ["team_id"], name: "index_mutants_on_team_id"
 
   create_table "tasks", force: true do |t|
     t.text     "description"
