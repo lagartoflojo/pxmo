@@ -11,20 +11,21 @@
   </div> <!-- team members -->
 
   <h4>Tasks</h4>
-  <div class="team-tasks">
+  <div class="team-tasks" id="<%= dom_id team %>_tasks">
     <% team.tasks.each do |task| %>
-      <div class="pxmo-checkbox-radio">
-        <input type="checkbox" id="<%= dom_id task %>">
-        <label for="<%= dom_id task %>"><%= task.description %></label>
-      </div>
+      <%= render task %>
     <% end -%>
 
     <div class="pxmo-checkbox-radio pxmo-checkbox-radio-editable">
-      <input type="checkbox" value="" id="new_task_<%= dom_id team %>">
-      <label for="new_task_<%= dom_id team %>">
-        <input type="text" placeholder="Add new task" class="new-task-input"
-          data-toggle="tooltip" data-trigger="focus" data-placement="bottom" title="Press [enter] to add task">
-      </label>
+      <%= form_for [team, Task.new], remote: true, 'data-type' => 'html',
+            html: { id: dom_id(team) + '_new_task_form' } do |f| %>
+        <input type="checkbox" disabled="disabled">
+        <label>
+          <%= f.text_field :description, placeholder: "Add new task", class: "new-task-input",
+                'data-toggle' => "tooltip", 'data-trigger' => "focus", 'data-placement' => "bottom",
+                title: "Press [enter] to add task" %>
+        </label>
+      <% end %>
     </div>
   </div> <!-- team tasks -->
 
